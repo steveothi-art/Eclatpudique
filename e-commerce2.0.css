@@ -356,7 +356,7 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 6%;
-    background:  var(--background);
+    background:  var(--glass);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
