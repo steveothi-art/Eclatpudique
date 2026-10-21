@@ -5,7 +5,7 @@
 const hamburger = document.querySelector(".hamburger");
 const mobileMenu = document.getElementById("mobileMenu");
 
-console.log("Hamburger :", hamburger); 
+console.log("Hamburger :", hamburger);
 console.log("Mobile menu :", mobileMenu);
 
 if (hamburger && mobileMenu) {
@@ -536,7 +536,7 @@ if (checkoutButton) {
 
             // Numéro WhatsApp de Jennifer Store
             const whatsappNumber =
-                "2250576293783";
+                "2250714005285";
 
 
             const whatsappURL =
