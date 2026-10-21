@@ -83,7 +83,7 @@
     .logo{
         font-size: 21px
     }
-    .logo span{
+    .logo .log{
         font-size: 29px;
     }
 
@@ -147,7 +147,7 @@
     .logo{
         font-size: 19px;
     }
-    .logo span{
+    .logo .log{
         font-size: 27px;
     }
     .cart-btn,
@@ -238,7 +238,7 @@
     .logo{
         font-size: 17px;
     }
-    .logo span{
+    .logo .log{
         font-size: 24px;
     }
     .cart-btn, .hamburger{
@@ -281,7 +281,7 @@
     .logo{
         font-size: 16px;
     }
-    .logo span{
+    .logo .log{
      font-size: 22px;   
     }
     .header-action{
@@ -299,18 +299,23 @@
 }
 
 :root{
-    --orange: #f97316;
-    --orange-dark: #c2410c;
+    --primary: #f0c14a;
+    --secondary: #fefc6af3;
+    --primary-ligth :#d3f1a2d9;
 
     --beige: #f5ead7;
-    --beige-light:#fffaf2;
-    --black: #111111;
-    --black-ligth:#222222;
+    
+    --black: #000000;
+    
+    --text : black;
 
     --white: #ffffff;
     --gray: #777777;
 
-    --radius: 18px;
+    --radius: 30px;
+    --shadow: 0 20px 60px rgba(45, 52, 120, .12);
+    --glass: rgba(255,255,255,.55);
+    --transition: .3s ease; 
 
 }
 
@@ -326,8 +331,8 @@ html{
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color: var(--beige-light);
-    color: var(--black);
+    background-color: var(--white);
+    color: var(--text);
     overflow-x: hidden;
 
 }
@@ -351,42 +356,31 @@ header{
     align-items: center;
     justify-content: space-between;
     padding: 0 6%;
-    background:  rgba(255, 250, 242, 0.88);
-    backdrop-filter: blur(18px);
+    background:  var(--background);
+    backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
-.logo{
-    font-size: 34px;
-    font-weight: 700;
-    letter-spacing: -1px;
+
+.lo{
+    width: 60px;
+    height: 60px;
 }
 
-.logo span{
-    color: var(--orange);
-    font-size: 34px;
-}
-.logo strong{
-    color: var(--orange);
-}
 
 .desktop-nav{
     display: flex;
     align-items: center;
     gap: 32px;
+    
 }
 .desktop-nav a{
     font-size: 14px;
     font-weight: 600;
     transition: 0.3s;
-
-    background: var(--beige-light);
-    border: 1px solid var(--black-ligth);
+    border: 1px solid var(--black);
     border-radius: var(--radius);
+    background: var(--glass);
     padding: 8px;
-     box-shadow: 2px 0 10px var(--orange);
-}
-.desktop-nav a :hover{
-    color: var(--orange-dark);
 }
 .header-action {
     display: flex;
@@ -397,23 +391,22 @@ header{
     width: 42px;
     height: 42px;
     border: none;
-    background: var(--beige);
-    border-radius: 50%;
+    background: var(--secondary);
+    border-radius: var(--radius);
     align-items: center;
     justify-content: center;
     transition: 0.3s;
 }
 .icon-btn :hover{
-    background: var(--beige);
     color: var(--orange);
 }
 .cart-btn{
     position: relative;
-    background: var(--black);
-    color: white;
+    background: red;
+    color: var(--white)
 }
 .cart-btn :hover{
-    background: var(--orange);
+    background: var(--primary);
 }
 .cart-btn span{
     position: absolute;
@@ -421,8 +414,8 @@ header{
     right: -4px;
     width: 19px;
     height: 19px;
-    background: var(--orange);
-    color: white;
+    background: var(--primary);
+    color: var(--white);
     border: 50%;
     font-size: 11px;
     display: flex;
@@ -437,7 +430,7 @@ header{
     width: 42px;
     height: 42px;
     border: none;
-    background: var(--black);
+    background: var(--background);
     border-radius: 50%;
     padding: 9px;
     cursor: pointer;
@@ -449,7 +442,7 @@ header{
     display: block;
     width: 100%;
     height: 2px;
-    background: white;
+    background: var(--black);
     margin: 5px 0;
     transition: 0.3s ease;
 }
@@ -479,12 +472,12 @@ header{
     max-width: 350px;
     height: calc(100vh - 80px);
     padding: 40px 30px;
-    background: rgba(17, 17, 17, 0.96);
+    background: rgba(0, 0, 0, 0.217);
     backdrop-filter: blur(20px);
     display: flex;
     flex-direction: column;
     gap: 25px;
-    color: white;
+    
     z-index: 5000;
     transition: right 0.4s ease;
     overflow-y: auto;
@@ -509,7 +502,7 @@ header{
 
 
 .mobile-menu a:hover {
-    color: var(--orange);
+    color: var(--secondary);
 }
 
 
@@ -582,18 +575,20 @@ header{
     display: flex;
     align-items: center;
     padding: 80px 8%;
-    background: linear-gradient(110deg, var(--beige) 0%, #f8dfbf 55%, var(--orange) 100%);
+    background:
+        radial-gradient(circle at 70% 50%, var(--primary-ligth), transparent 80%),
+        radial-gradient(circle at 30% 60%, var(--secondary), transparent 30%),
+        var(--primary);
     position: relative;
     overflow: hidden;
 }
 
 .hero ::after{
-    content: "";
     position: absolute;
-    width: 450px;
-    height: 450px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.25);
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius);
+    background: var(--background);
     filter: blur(5px);
     margin-left: 250px;
 }
@@ -603,7 +598,7 @@ header{
     z-index: 2;
 }
 .hero-label {
-    color: var(--orange-dark);
+    color: var(--primary);
     font-weight: 700;
     font-size: 13px;
     letter-spacing: 3px;
@@ -615,13 +610,13 @@ header{
     letter-spacing: -4px;
 }
 .hero h1 span{
-    color: var(--orange);
+    color: var(--white);
 }
 .hero p{
     max-width: 500px;
     font-size: 18px;
     line-height: 1.7;
-    color: #444;
+    color: var(--gray);
 }
 .hero-buttons{
     display: flex;
@@ -640,20 +635,21 @@ header{
     transition: 0.3
 }
 .primary-btn{
-    background: var(--black);
-    color: white;
+    background: var(--white);
+    color: var(--black);
 
 }
-.primary-btn :hover{
-    background: var(--orange);
+.primary-btn:hover{
+    background: var(--secondary);
     transform: translateY(-3px);
 }
 .secondary-btn{
     border: 1px solid var(--black);
+    color: var(--black);
 }
-.secondary-btn :hover{
-    background: var(--black);
-    color: white;
+.secondary-btn:hover{
+    background: var(--secondary);
+    transform: translateY(-3px);
 }
 
 
@@ -668,7 +664,7 @@ header{
 }
 .section-heading span, 
 .section-title span{
-    color: var(--orange);
+    color: var(--primary);
     font-size: 12px;
     letter-spacing: 3px;
     font-weight: 700;
@@ -689,15 +685,15 @@ header{
     width: 100%;
 }
 .category-card{
-    background: white;
+    background: var(--beige);
     padding: 35px 25px;
     border-radius: var(--radius);
-    border: 1px solid #eee;
+    border: 1px solid white;
     transition: 0.3s;
 }
 .category-icon :hover{
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.80);
+    transform: translateY(8px);
+    box-shadow: 0 20px 40px var(--background)
 
 }
 .category-icon{
@@ -709,8 +705,7 @@ header{
     justify-content: center;
     border-radius: 15px;
     background:  var(--beige);
-    color: var(--orange);
-    
+    color: var(--primary);
     font-size: 22px;
     
 }
@@ -732,7 +727,7 @@ header{
 .category-card a{
     display: inline-block;
     margin-top: 20px;
-    color: var(--orange);
+    color: var(--primary);
     font-weight: 700;
 }
 /* ADAPTATION CAT*/
@@ -753,8 +748,11 @@ header{
     margin: 0 7% 100px;
     border-radius: 25px ;
     padding: 70px;
-    background: var(--orange);
-    color: white;
+    background:
+        radial-gradient(circle at 30% 50%, var(--primary-ligth), transparent 80%),
+        radial-gradient(circle at 30% 60%, var(--secondary), transparent 30%),
+        var(--primary);
+    color: var(--white);
 }
 .promotion-content{
     max-width: 650px;
@@ -771,14 +769,17 @@ header{
     color: var(--black);
 }
 .promotion p{
+    color: var(--black);
     margin-bottom: 25px;
     line-height: 1.6;
 }
 .white-btn{
-    background: white;
+    background: var(--background);
+    border: 1px solid black;
     color: var(--black);
 }
 .white-btn:hover{
+    background: var(--secondary) ;
     transform: translateY(-3px);
 }
 
@@ -787,26 +788,31 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-bottom: 45px;
+    text-align: center;
+    margin-bottom: 50px;
 }
+
 .view-all{
-    color: var(--orange);
+    color: var(--primary);
     font-weight: 700;
+    font-size: 30px;
 }
 .products-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 25px;
     width: 100%;
+    background: var(--background);
 }
 
-.product-card {
-    background: white;
+.product-cart {
+    background: var(--beige);
     border-radius: var(--radius);
     overflow: hidden;
-    border: 1px solid #eee;
+    
     width: 100%;
     min-width: 0;
+    transform: translateY(-3px);
 }
 
 /* Image du produit */
@@ -892,36 +898,11 @@ header{
     }
 }
 
-.badge{
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    background: var(--orange);
-    color: white;
-    padding: 7px 12px;
-    border-radius: 12px;
-    font-size: 11px;
-    font-weight: 700;
-}
-.favorite{
-    position: absolute;
-    right: 15px;
-    top: 15px;
-    width: 38px;
-    height: 38px;
-    border: none;
-    border-radius: 50%;
-    background: white;
-    color: var(--black);
-}
-.favorite :hover{
-    color: var(--orange);
-}
 .product-info{
     padding: 22px;
 }
 .product-category{
-    color: var(--orange);
+    color: var(--primary);
     font-size: 12px;
     font-weight: 700;
 }
@@ -929,7 +910,7 @@ header{
     margin: 8px 0;
 }
 .rating{
-    color: var(--orange);
+    color: var(--gray);
     font-size: 13px;
     margin-bottom: 12px;
 }
@@ -958,15 +939,21 @@ header{
     transition: 0.3s;
 }
 .add-cart:hover{
-    background: var(--orange);
+    background: var(--primary);
 }
 
 
 footer{
-    background: var(--black-ligth);
-    color: white;
+    background: var(--black);
+    color: var(--white);
     padding: 70px 7% 20px;
 
+}
+
+.log{
+    width: 90px;
+    height: 90px;
+    border-radius: var(--radius)
 }
 .footer-content{
     display: grid;
@@ -974,7 +961,7 @@ footer{
     gap: 50px;
 }
 .footer-brand p {
-    color: #dedede;
+    color: var(--white);
     max-width: 300px;
     margin: 20px 0;
     line-height: 1.6;
@@ -988,7 +975,7 @@ footer{
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: var(--orange);
+    background: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1000,12 +987,13 @@ footer{
     object-fit: contain;
 }
 .socials a :hover{
-    background: var(--orange);
+    background: var(--primary-ligth);
+    border-radius: var(--radius);
 }
 .footer-column{
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 15px; 
 }
 .footer-column h3{
     margin-bottom: 10px;
@@ -1013,12 +1001,12 @@ footer{
 .footer-column a, 
 .footer-column p{
     gap: 10px;
-    color: var(--beige);
+    color: var(-- --white);
 
 }
 
 .footer-column a:hover{
-    color: var(--orange);
+    color: var(--secondary);
 }
 .footer-column p{
     display: flex;
@@ -1038,7 +1026,7 @@ footer{
     padding-top: 25px;
     
     text-align: center;
-    color: #777;
+    color: var(--gray);
     font-size: 13px;
 }
 /*Panier*/
@@ -1049,9 +1037,10 @@ footer{
     width: 420px;
     max-width: 90%;
     height: 70%;
-    background: var(--white);
+    background: var(--beige);
     z-index: 2000;
-    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--black);
+    border-radius: var(--radius);
     transition: 0.4s;
     display: flex;
     flex-direction: column;
@@ -1065,12 +1054,12 @@ footer{
     justify-content: space-between; 
     align-items: center; 
     padding: 20px 25px; 
-    border-bottom: 1px solid #eee; 
-    background: var(--beige-light);
+    border-bottom: 1px solid var(--primary); 
+    background: var(--primary-light);
 }
 .cart-header button{
     border: none;
-    background: var(--orange-dark);
+    background: var(--primary-ligth);
     font-size: 20px;
     border-radius: var(--radius);
     padding: 18px;
@@ -1089,16 +1078,17 @@ footer{
    
 
 }
-.cart-product { display: flex; 
+.cart-product { 
+    display: flex; 
     justify-content: space-between; 
     align-items: center; 
     gap: 15px; 
     padding: 15px 0; 
-    border-bottom: 1px solid #eee; 
+    border-bottom: 1px solid var(--primary); 
 }
 .cart-product button{
     border: none;
-    background: transparent;
+    background: var(--background);
     color: red;
 }
 
@@ -1114,7 +1104,8 @@ footer{
     font-weight: bold; 
 }
 
-.cart-quantity { display: flex; 
+.cart-quantity { 
+    display: flex; 
     align-items: center; 
     gap: 8px; 
     margin-top: 8px; } 
@@ -1122,56 +1113,53 @@ footer{
         width: 28px; 
         height: 28px; 
         border: none; 
-        background: #eee; 
-        border-radius: 5px; 
+        background: var(--primary-ligth); 
+        border-radius: var(--radius); 
         cursor: pointer; 
 } 
 .delete-product { 
         width: 38px;
         height: 38px;
         border: none;
-        background: var(--beige-light);
-        color:var(--orange);
+        background: var(--beige);
         border-radius: 50%;
         cursor: pointer;
-
         display: flex;
         align-items: center;
         justify-content: center;
-
         transition: 0.3s ease;
 }
 .delete-product:hover{
-    background: var(--orange-dark);
-    color: var(--white);
+    background: var(--primary-ligth);
     transform: scale(1.08);
 }
 
 .cart-footer{
     padding: 25px;
-    border-top: 1px solid #eee;
-    background: var(--beige-light);
+    border-top: 1px solid var(--primary);
+    background: var(--beige);
+    border-radius: var(--radius);
 }
-
-
 
 .checkout{
     width: 100%;
     padding: 15px;
     margin-top: 15px;
     border: none;
-    background: var(--orange);
-    color: white;
+    background: var(--primary-ligth);
+    color: var(--text);
     border-radius: 10px;
     font-weight: 700;
 }
+
 .ima{
     width: 30px;
     height: 30px;
-    
     object-fit: contain;
 }
-.checkout:hover { opacity: 0.9; }
+.checkout:hover { 
+    opacity: 0.9; 
+}
 
 /*ADAPTATION RESPONSIVE TAB*/
 
